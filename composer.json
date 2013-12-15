@@ -3,8 +3,8 @@
 	"description": "Zend Framework 2 Symfony Console module",
 	"keywords": ["zf2", "zend", "sf2", "symfony", "console"],
 	"license": "MIT",
-    "require": {
-        "symfony/console": "2.*",
+	"require": {
+		"symfony/console": "2.*",
 		"zendframework/zend-mvc": "2.*",
 		"zendframework/zend-servicemanager": "2.*",
 		"zendframework/zend-stdlib": "2.*"
