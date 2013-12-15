@@ -3,7 +3,7 @@ RdnConsole - Zend Framework Symfony Console Module
 
 The **RdnConsole** module bridges the Symfony Console component with Zend Framework 2.
 
-## How to Install
+## How to install
 
 Use composer to require the `radnan/rdn-console` package:
 
@@ -24,7 +24,7 @@ return array(
 );
 ~~~
 
-## How to Use
+## How to use
 
 You can use the `vendor/bin/console` utility to run your commands. This utility might be in a different directory depending on your composer's `bin-dir` configuration.
 
@@ -102,6 +102,22 @@ return array(
 ### 4. Run the command!
 
 Now you can simply run `vendor/bin/console app:hello-world` to run this command.
+
+## Sample command
+
+A sample `RdnConsole:CacheClear` command is provided with the module. You can enable it by including the following in your `module.config.php`:
+
+~~~php
+<?php
+
+return array(
+	'rdn_console' => array(
+		'commands' => array(
+			'RdnConsole:CacheClear',
+		),
+	),
+);
+~~~
 
 ## Command Adapter
 

@@ -30,7 +30,7 @@ return array(
 		),
 
 		'commands' => array(
-			'RdnConsole:CacheClear',
+			//'RdnConsole:CacheClear',
 		),
 
 		'config' => array(
