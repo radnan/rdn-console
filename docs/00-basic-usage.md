@@ -75,3 +75,19 @@ Please read the [Console Command Service Locator](02-console-commands.md) docume
 ### 2. Console application
 
 Please read the [Configuration](01-config.md) documentation.
+
+## Interfaces
+
+The following interfaces are available in the module:
+
+* `RdnConsole\Command\CommandInterface`
+	* `RdnConsole\Command\ConfigurableInterface`
+	* `RdnConsole\Command\InitializableInterface`
+	* `RdnConsole\Command\InteractableInterface`
+	* `RdnConsole\Command\ExecutableInterface`
+
+The `AbstractCommand` class implements all these interfaces except for `ConfigurableInterface`.
+
+The `AbstractCommandFactory` class implements all these interfaces.
+
+If you'd like to create your own command class which doesn't extend any of the provided abstract classes you must implement some or all of these classes.
