@@ -7,7 +7,6 @@ use Zend\ServiceManager\Exception;
 
 class CommandManager extends AbstractPluginManager
 {
-
 	/**
 	 * Validate the plugin
 	 *

@@ -13,7 +13,7 @@ class Index implements FactoryInterface
 	 * Create service
 	 *
 	 * @param ServiceLocatorInterface $controllers
-	 * @return mixed
+	 * @return Controller\Index
 	 */
 	public function createService(ServiceLocatorInterface $controllers)
 	{

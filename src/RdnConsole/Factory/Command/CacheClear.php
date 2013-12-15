@@ -18,8 +18,6 @@ class CacheClear extends AbstractCommandFactory
 	{
 		$config = $this->services->get('Config');
 		$config = $config['rdn_console']['config']['cache_clear'];
-
-		$command = new Command\CacheClear($config);
-		return $command;
+		return new Command\CacheClear($config);
 	}
 }
