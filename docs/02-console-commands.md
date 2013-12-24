@@ -76,6 +76,25 @@ class HelloWorld extends AbstractCommand
 }
 ~~~
 
+By default `RdnConsole\Command\Adapter` is used as the adapter but this can be easily customized by overriding the `getAdapter()` method in your command or command factory:
+
+~~~php
+class HelloWorld extends AbstractCommand
+{
+	public function getAdapter()
+	{
+		if (!$this->adapter)
+		{
+			$this->adapter = new MyCustomAdapter($this);
+		}
+
+		return $this->adapter;
+	}
+}
+~~~
+
+You can extend your `MyCustomAdapter` class from the default adapter class. Or you can make a completely custom one, in which case just make sure `MyCustomAdapter` extends the Symfony command class (`Symfony\Component\Console\Command\Command`) and implements the adapter interface (`RdnConsole\Command\AdapterInterface`).
+
 ## Factories
 
 Factories are useful when a command has external dependencies. The command will contain the execution code, while the factory will contain the configuration and the code used to generate the command.
