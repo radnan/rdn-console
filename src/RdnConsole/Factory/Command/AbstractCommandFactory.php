@@ -95,11 +95,13 @@ abstract class AbstractCommandFactory implements
 		$this->adapter = $adapter;
 	}
 
-	/**
-	 * @return Command\AdapterInterface
-	 */
 	public function getAdapter()
 	{
+		if (!$this->adapter)
+		{
+			$this->adapter = new Command\Adapter($this);
+		}
+
 		return $this->adapter;
 	}
 

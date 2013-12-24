@@ -2,9 +2,8 @@
 
 namespace RdnConsole\Factory;
 
-use RdnConsole\Command;
+use RdnConsole\Command\CommandInterface;
 use Symfony\Component\Console;
-use Symfony\Component\Console\Input\InputOption;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
@@ -37,8 +36,9 @@ class Application implements FactoryInterface
 			$commands = $services->get('RdnConsole\Command\CommandManager');
 			foreach ($config['commands'] as $name)
 			{
-				$command = new Command\Adapter($commands->get($name));
-				$app->add($command);
+				/** @var CommandInterface $command */
+				$command = $commands->get($name);
+				$app->add($command->getAdapter());
 			}
 		}
 

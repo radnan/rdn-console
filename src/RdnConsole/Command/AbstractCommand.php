@@ -33,11 +33,13 @@ abstract class AbstractCommand implements
 		$this->adapter = $adapter;
 	}
 
-	/**
-	 * @return AdapterInterface
-	 */
 	public function getAdapter()
 	{
+		if (!$this->adapter)
+		{
+			$this->adapter = new Adapter($this);
+		}
+
 		return $this->adapter;
 	}
 }
