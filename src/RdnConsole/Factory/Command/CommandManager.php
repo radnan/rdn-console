@@ -19,6 +19,10 @@ class CommandManager implements FactoryInterface
 	{
 		$config = $services->get('Config');
 		$config = new Config($config['rdn_console_commands']);
-		return new Command\CommandManager($config);
+
+		$commands = new Command\CommandManager($config);
+		$commands->setServiceLocator($services);
+
+		return $commands;
 	}
 }
