@@ -1,14 +1,27 @@
 #!/usr/bin/env php
 <?php
 
+use Zend\ServiceManager\Config;
+use Zend\ServiceManager\ServiceManager;
+
 if (!file_exists('vendor/autoload.php'))
 {
 	chdir(__DIR__ .'/../../../../');
 }
 require 'vendor/autoload.php';
 
-$app = Zend\Mvc\Application::init(include 'config/application.config.php');
-$services = $app->getServiceManager();
+if (file_exists('config/application.config.php'))
+{
+	$config = include 'config/application.config.php';
+	$app = Zend\Mvc\Application::init($config);
+	$services = $app->getServiceManager();
+}
+else
+{
+	$config = include __DIR__ .'/../config/module.config.php';
+	$services = new ServiceManager(new Config($config['service_manager']));
+	$services->setService('Config', $config);
+}
 
 $console = $services->get('RdnConsole\Application');
 $console->run();
