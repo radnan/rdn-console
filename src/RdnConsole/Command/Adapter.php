@@ -33,7 +33,8 @@ class Adapter extends Command implements AdapterInterface
 		if (!$this->command instanceof ConfigurableInterface)
 		{
 			throw new \RuntimeException(sprintf(
-				'Command must implement %s\ConfigurableInterface'
+				'Command (%s) must implement %s\ConfigurableInterface'
+				, get_class($this->command)
 				, __NAMESPACE__
 			));
 		}

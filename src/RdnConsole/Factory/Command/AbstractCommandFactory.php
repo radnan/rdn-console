@@ -41,7 +41,7 @@ abstract class AbstractCommandFactory implements
 			if (!$this->command instanceof Command\CommandInterface)
 			{
 				throw new \InvalidArgumentException(sprintf(
-					'Command %s must implement %s\CommandInterface'
+					'Command (%s) must implement %s\CommandInterface'
 					, get_class($this->command)
 					, __NAMESPACE__
 				));
