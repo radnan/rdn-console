@@ -99,7 +99,7 @@ You can extend your `MyCustomAdapter` class from the default adapter class. Or y
 
 Factories are useful when a command has external dependencies. The command will contain the execution code, while the factory will contain the configuration and the code used to generate the command.
 
-The `RdnConsole\Factory\Command\AbstractCommandFactory` abstract class is included with the module for your convenience. Simply extend this class when creating your command factory.
+The `RdnConsole\Factory\Command\AbstractCommandFactory` abstract class is included with the module for your convenience. Simply extend this class when creating your command factory. This class extends the `AbstractFactory` class from the [rdn-factory](https://github.com/radnan/rdn-factory) module.
 
 ~~~php
 <?php
@@ -121,8 +121,7 @@ class HelloWorld extends AbstractCommandFactory
 
 	protected function create()
 	{
-		// You have access to the service manager via the $this->services property
-		$dependency = $this->services->get('External dependency');
+		$dependency = $this->service('External dependency');
 		return new Command\HelloWorld($dependency);
 	}
 }

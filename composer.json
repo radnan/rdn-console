@@ -10,6 +10,7 @@
 		}
 	],
 	"require": {
+		"radnan/rdn-factory": "1.*",
 		"symfony/console": "2.*",
 		"zendframework/zend-mvc": "2.*",
 		"zendframework/zend-servicemanager": "2.*",

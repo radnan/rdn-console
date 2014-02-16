@@ -2,6 +2,8 @@
 
 namespace RdnConsole;
 
+use Zend\ModuleManager\ModuleManager;
+
 class Module
 {
 	public function getConfig()
@@ -12,5 +14,10 @@ class Module
 	public function getPath()
 	{
 		return dirname(dirname(__DIR__));
+	}
+
+	public function init(ModuleManager $modules)
+	{
+		$modules->loadModule('RdnFactory');
 	}
 }

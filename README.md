@@ -202,11 +202,13 @@ class HelloWorld extends AbstractCommandFactory
 
 	protected function create()
 	{
-		$dependency = $this->services->get('External dependency');
+		$dependency = $this->service('External dependency');
 		return new Command\HelloWorld($dependency);
 	}
 }
 ~~~
+
+The `AbstractCommandFactory` class extends the `AbstractFactory` class from the [rdn-factory](https://github.com/radnan/rdn-factory) module.
 
 #### 3. Register command factory with service locator
 

@@ -3,35 +3,27 @@
 namespace RdnConsole\Factory\Command;
 
 use RdnConsole\Command;
+use RdnFactory\AbstractFactory;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-abstract class AbstractCommandFactory implements
-	FactoryInterface
-	, Command\ConfigurableInterface
+abstract class AbstractCommandFactory extends AbstractFactory implements
+	Command\ConfigurableInterface
 	, Command\InitializableInterface
 	, Command\InteractableInterface
 	, Command\ExecutableInterface
-	, ServiceLocatorAwareInterface
 {
 	/**
 	 * @var Command\Adapter
 	 */
 	protected $adapter;
 
-	/**
-	 * @var ServiceLocatorInterface
-	 */
-	protected $services;
-
 	protected $command;
 
 	abstract public function configure();
-
-	abstract protected function create();
 
 	public function getCommand()
 	{
@@ -103,31 +95,5 @@ abstract class AbstractCommandFactory implements
 		}
 
 		return $this->adapter;
-	}
-
-	/**
-	 * Set service locator
-	 *
-	 * @param ServiceLocatorInterface $services
-	 */
-	public function setServiceLocator(ServiceLocatorInterface $services)
-	{
-		if ($services instanceof ServiceLocatorAwareInterface)
-		{
-			$this->setServiceLocator($services->getServiceLocator());
-			return;
-		}
-
-		$this->services = $services;
-	}
-
-	/**
-	 * Get service locator
-	 *
-	 * @return ServiceLocatorInterface
-	 */
-	public function getServiceLocator()
-	{
-		return $this->services;
 	}
 }
