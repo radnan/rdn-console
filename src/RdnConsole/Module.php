@@ -8,12 +8,7 @@ class Module
 {
 	public function getConfig()
 	{
-		return include $this->getPath() .'/config/module.config.php';
-	}
-
-	public function getPath()
-	{
-		return dirname(dirname(__DIR__));
+		return include __DIR__ .'/../../config/module.config.php';
 	}
 
 	public function init(ModuleManager $modules)
