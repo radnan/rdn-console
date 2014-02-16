@@ -26,7 +26,7 @@ return array(
 	'rdn_console' => array(
 		'application' => array(
 			'name' => 'RdnConsole',
-			'version' => '1.1.2',
+			'version' => '1.2.0',
 		),
 
 		'commands' => array(
