@@ -13,7 +13,7 @@ require 'vendor/autoload.php';
 if (file_exists('config/application.config.php'))
 {
 	$app = include 'public/index.php';
-	if (!$app instance of Zend\Mvc\Application)
+	if (!$app instanceof Zend\Mvc\Application)
 	{
 		$config = include 'config/application.config.php';
 		$app = Zend\Mvc\Application::init($config);
