@@ -30,6 +30,13 @@ You can use the `vendor/bin/console` utility to run your commands. This utility 
 
 The module will also take over all zf2 console routes. So you can simply run `php public/index.php` to run your commands as well.
 
+Make sure you return your application variable `$app` in your `public/index.php` file:
+
+~~~php
+// ...
+return Zend\Mvc\Application::init($config);
+~~~
+
 ## How to create commands
 
 Create your commands inside your module, register them with the console command service locator, and finally inject the command into the console application.

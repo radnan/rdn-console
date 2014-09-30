@@ -12,8 +12,12 @@ require 'vendor/autoload.php';
 
 if (file_exists('config/application.config.php'))
 {
-	$config = include 'config/application.config.php';
-	$app = Zend\Mvc\Application::init($config);
+	$app = include 'public/index.php';
+	if (!$app instance of Zend\Mvc\Application)
+	{
+		$config = include 'config/application.config.php';
+		$app = Zend\Mvc\Application::init($config);
+	}
 	$services = $app->getServiceManager();
 }
 else
